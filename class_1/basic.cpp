@@ -3,7 +3,7 @@
 int main()
 {
     // Creates a 640x480 window
-    initwindow(640, 480); // initialise graphics window
+    initwindow(640, 480); //nitialise graphics window
 
     line(100, 100, 200, 200);  // draw a line
     circle(100, 300, 30);       // draw a circle
