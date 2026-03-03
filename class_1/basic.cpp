@@ -10,6 +10,6 @@ int main()
     rectangle(50, 200, 300, 400); // draw a rectangle
 
     getch(); // wait for a key press
-    closegraph();               // close graphics window
+    closegraph();
     return 0;
 }
