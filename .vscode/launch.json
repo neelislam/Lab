@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/class_1",
+      "program": "/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/class_1/build/Debug/outDebug"
+    }
+  ]
+}
