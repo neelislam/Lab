@@ -9,7 +9,7 @@ int main()
     circle(100, 300, 30);       // draw a circle
     rectangle(50, 200, 300, 400); // draw a rectangle
 
-    getch(); // wait for a key press
+    getch();
     closegraph();
     return 0;
 }
