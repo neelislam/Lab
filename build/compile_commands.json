@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/build",
+  "command": "/usr/bin/c++  -I/opt/homebrew/Cellar/sdl2/2.32.10/include -I\"/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/SDL_bgi/src\" -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2 -g -std=gnu++14 -arch arm64 -o CMakeFiles/Lab.dir/class_1/basic.cpp.o -c \"/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/class_1/basic.cpp\"",
+  "file": "/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/class_1/basic.cpp",
+  "output": "CMakeFiles/Lab.dir/class_1/basic.cpp.o"
+},
+{
+  "directory": "/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/build",
+  "command": "/usr/bin/cc  -I/opt/homebrew/Cellar/sdl2/2.32.10/include -I\"/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/SDL_bgi/src\" -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2 -g -arch arm64 -o CMakeFiles/Lab.dir/SDL_bgi/src/SDL_bgi.c.o -c \"/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/SDL_bgi/src/SDL_bgi.c\"",
+  "file": "/Users/rabiul/Documents/Varisty/Finale/Graphics Lab/Lab/SDL_bgi/src/SDL_bgi.c",
+  "output": "CMakeFiles/Lab.dir/SDL_bgi/src/SDL_bgi.c.o"
+}
+]
