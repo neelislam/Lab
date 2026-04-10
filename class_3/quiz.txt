@@ -1,0 +1,9 @@
+Know fucniton ->
+
+setcolor();
+outtextxy(200,300, "Line");
+settextstyle(text, direction, size); [replace with proper parameter]
+settextstyle(3, 0, 3); 3 er jagay 0 use korle default font //change font style
+font size 3 type, 1,2,3 / small medium large
+
+we
