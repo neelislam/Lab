@@ -22,7 +22,6 @@ int main()
     y = y1;
 
 
-
     if (  m >= -1 && m<= 1 )
     {
         cout << "1st condition triggered" <<endl;

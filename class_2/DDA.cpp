@@ -7,8 +7,6 @@ using namespace std;
 
 int main() {
     int x0, y0, x1, y1;
-
-    
     cout << "Enter starting coordinates (x0 y0): ";
     cin >> x0 >> y0;
     
