@@ -6,6 +6,7 @@ int main() {
     int gd = DETECT, gm;
     initgraph(&gd, &gm, "");
 
+    // initwindow(640, 480);
     // Original points A(x1,y1) and B(x2,y2)
     int x1 = 100, y1 = 100;
     int x2 = 200, y2 = 100;
@@ -13,6 +14,7 @@ int main() {
     // Draw original line (WHITE)
     setcolor(WHITE);
     line(x1, y1, x2, y2);
+    
 
     // Translation values
     int tx = 80, ty = 50;

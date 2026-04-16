@@ -2,8 +2,10 @@
 using namespace std;
 
 int main() {
-    int gd = DETECT, gm;
-    initgraph(&gd, &gm, "");
+    // int gd = DETECT, gm;
+    // initgraph(&gd, &gm, "");
+
+    initwindow(640, 480);
 
     // Original triangle points
     int x1 = 100, y1 = 100;
@@ -17,7 +19,7 @@ int main() {
     line(x3, y3, x1, y1);
 
     // Scaling factors
-    float sx = 123.5, sy = 123.5;
+    float sx = 2, sy = 0.5;
     // cout << "Enter scaling factors (sx, sy): ";
     // cin >> sx >> sy;
 
