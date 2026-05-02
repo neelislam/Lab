@@ -1,0 +1,109 @@
+#include <iostream>
+#include <graphics.h>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+// Edge structure for scanline algorithm
+struct Edge {
+    int ymax;   // maximum y of the edge
+    float x;    // current x intersection
+    float dx;   // 1/slope (inverse slope)
+};
+
+// Function to add edges to the edge table
+void addEdges(int x1, int y1, int x2, int y2, vector<Edge> edgeTable[], int ymin) {
+    if (y1 == y2) return; // ignore horizontal edges
+    if (y1 > y2) {
+        swap(x1, x2);
+        swap(y1, y2);
+    }
+    Edge e;
+    e.ymax = y2;
+    e.x = x1;
+    e.dx = (float)(x2 - x1) / (y2 - y1);
+    edgeTable[y1 - ymin].push_back(e);
+}
+
+// Scanline polygon fill
+void scanlineFill(vector<pair<int,int>> vertices) {
+    // Find ymin and ymax
+    int ymin = vertices[0].second, ymax = vertices[0].second;
+    for (auto v : vertices) {
+        ymin = min(ymin, v.second);
+        ymax = max(ymax, v.second);
+    }
+
+    // Create edge table (array of vectors)
+    vector<Edge> edgeTable[ymax - ymin + 1];
+
+    // Add each edge
+    int n = vertices.size();
+    for (int i = 0; i < n; i++) {
+        int x1 = vertices[i].first;
+        int y1 = vertices[i].second;
+        int x2 = vertices[(i+1)%n].first;
+        int y2 = vertices[(i+1)%n].second;
+        addEdges(x1, y1, x2, y2, edgeTable, ymin);
+    }
+
+    // Active edge list
+    vector<Edge> activeEdges;
+
+    // Process each scanline
+    for (int y = ymin; y <= ymax; y++) {
+        // Add edges that start at this y
+        for (auto &e : edgeTable[y - ymin]) {
+            activeEdges.push_back(e);
+        }
+
+        // Remove edges that end at this y
+        activeEdges.erase(remove_if(activeEdges.begin(), activeEdges.end(),
+            [y](Edge &e) { return e.ymax == y; }), activeEdges.end());
+
+        // Sort active edges by x
+        sort(activeEdges.begin(), activeEdges.end(),
+            [](Edge a, Edge b) { return a.x < b.x; });
+
+        // Fill between pairs of x intersections
+        for (size_t i = 0; i < activeEdges.size(); i += 2) {
+            if (i+1 < activeEdges.size()) {
+                int x1 = (int)activeEdges[i].x;
+                int x2 = (int)activeEdges[i+1].x;
+                for (int x = x1; x <= x2; x++) {
+                    putpixel(x, y, WHITE);
+                }
+            }
+        }
+
+        // Update x for the next scanline
+        for (auto &e : activeEdges) {
+            e.x += e.dx;
+        }
+    }
+}
+
+int main() {
+    initwindow(640, 480);
+
+    // Define polygon vertices (e.g., a pentagon)
+    vector<pair<int,int>> polygon = {
+        {200, 100}, {300, 150}, {280, 250}, {180, 250}, {150, 150}
+    };
+
+    // Draw the polygon outline
+    for (size_t i = 0; i < polygon.size(); i++) {
+        int x1 = polygon[i].first;
+        int y1 = polygon[i].second;
+        int x2 = polygon[(i+1)%polygon.size()].first;
+        int y2 = polygon[(i+1)%polygon.size()].second;
+        line(x1, y1, x2, y2);
+    }
+
+    delay(1000); // wait to see the outline
+    scanlineFill(polygon);
+
+    getch();
+    closegraph();
+    return 0;
+}
